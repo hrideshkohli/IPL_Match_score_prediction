@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html>
+<head>
+<title>
+	IPL Score predictor
+</title>	
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+
+</head>
+
+<body>
+
+<h1>IPL Score predictor app <em> using flask </em> deployed on Heroku </h1>
+<p> <em> By Hridesh Kohli</em>
+
+
+<form action="{{url_for('predict')}}" method='POST'>
+
+<label for = 'bat'>Batting team</label>
+<select id='bat' name="Batting-team">
+	<option value="none">--- Select a Batting team ---</option>
+	<option value="Mumbai Indians">Mumbai Indians</option>
+    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+    <option value="Chennai Super Kings">Chennai Super Kings</option>
+    <option value="Rajasthan Royals">Rajasthan Royals</option>
+    <option value="Kings XI Punjab">Kings XI Punjab</option>
+    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+    <option value="Delhi Daredevils">Delhi Daredevils</option>
+    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+</select><br></br>
+
+<label for = 'bowl'>Bowling team</label>
+<select id='bowl' name="Bowling-team">
+	<option value="none">--- Select a bowling team ---</option>
+	<option value="Mumbai Indians">Mumbai Indians</option>
+    <option value="Kolkata Knight Riders">Kolkata Knight Riders</option>
+    <option value="Chennai Super Kings">Chennai Super Kings</option>
+    <option value="Rajasthan Royals">Rajasthan Royals</option>
+    <option value="Kings XI Punjab">Kings XI Punjab</option>
+    <option value="Royal Challengers Bangalore">Royal Challengers Bangalore</option>
+    <option value="Delhi Daredevils">Delhi Daredevils</option>
+    <option value="Sunrisers Hyderabad">Sunrisers Hyderabad</option>
+
+</select><br></br>
+<label for "overs">Overs</label>
+<input type='text' id ='overs' name='overs' placeholder='how many overs completed...'><br></br>
+
+<label for "runs">Runs</label>
+<input type='text' id ='runs' name='runs' placeholder='how many runs scored...'><br></br>
+
+<label for "wickets">Wickets</label>
+<input type='text' id ='wickets' name='wickets' placeholder='how many wickets gone...'><br></br>
+
+<label for "runs_5">Runs in previous 5 overs</label>
+<input type='text' id ='runs_5' name='runs_5' placeholder='how many runs in previous 5 overs...'><br></br>
+
+<label for "wickets_5">Wickets in previous 5 overs</label>
+<input type='text' id ='wickets_5' name='wickets_5' placeholder='how many wickets gone in previous 5 overs...'><br></br>
+
+<button type='submit' value="submit">Predict Score</button>
+
+<br></br>
+	{% if results %}
+		<h1><center>{{results}}</center></h1>
+	
+	{% endif %}
+</body>
+
+
+
+
+
+
+
+
+
+
+</html>
